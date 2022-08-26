@@ -1,0 +1,20 @@
+<h1>Angular 及 await/async 運用:請規劃及說明下列流程的實作</h1>
+<!-- * Response 格式為 JSON，Response body 範例如下
+*{
+* token: ‘51d39jfsf7’,
+* result: ’1’,
+*} -->
+<p>
+  現在有一個需求，若Result等於0時，則跳出dialog並讓使用者可以選取 [確
+  認],[取消]，若選擇確認，則在把token發送到第二隻request api。
+</p>
+
+<button mat-raised-button (click)="start()">開始動作</button>
+<ng-template #dialogRef>
+  <h2>Would you send token to next api?</h2>
+  <div style="display:flex;align-items:center">
+    <button mat-button mat-dialog-close>取消</button>
+    <button mat-button (click)="callNextApi()">確定</button>
+    <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
+  </div>
+</ng-template>
